@@ -8,15 +8,16 @@ void DigiteSeuNome()
 {
     Console.WriteLine("Digite seu nome:");
     string nome = Console.ReadLine();
-    if (nome != nomeAdministrador)
+    if (listaDeNomes.Any(x => x == nome) == false)
     {
         Console.WriteLine("Usuário não cadastrado");
         OpcoesDoMenu();
     }
-    if (nome == nomeAdministrador)
+    else
     {
-        Console.WriteLine("Acesso concedido");
+        Console.WriteLine($"Seja bem vindo {nome}");
     }
+    
    
 }
 

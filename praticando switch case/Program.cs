@@ -1,10 +1,12 @@
 ﻿
 
 List<string> listaDeNomes = new List<string>();
-string nomeAdministrador = "larieli";
+listaDeNomes.Add("larieli");
+listaDeNomes.Add("sonia");
+listaDeNomes.Add("jhie");
 
 
-void DigiteSeuNome()
+/*void DigiteSeuNome()
 {
     Console.WriteLine("Digite seu nome:");
     string nome = Console.ReadLine();
@@ -19,8 +21,29 @@ void DigiteSeuNome()
     }
     
    
-}
+}*/
 
+void DigiteNome()
+{
+    Console.WriteLine("digite seu nome");
+    string nome = Console.ReadLine();
+
+    for (int i = 0;  i < listaDeNomes.Count; i++)
+    {
+        if(listaDeNomes[i] != nome)
+        {
+            Console.WriteLine($"Nome {nome} não está na lista");
+            OpcoesDoMenu();
+        }
+        else
+        {
+            Console.WriteLine($"Seja bem vindo(a) {listaDeNomes[i]}");
+            break;
+        }
+        
+           
+    }
+}
 
 
 void OpcoesDoMenu()
@@ -61,10 +84,9 @@ void CadastroDeUsuario()
     Console.WriteLine("Digite qualquer tecla para voltar ao inicio");
     Console.ReadKey();
     Console.Clear();
-    DigiteSeuNome();
+    DigiteNome();
 }
 
-DigiteSeuNome();
-
+DigiteNome();
 
 

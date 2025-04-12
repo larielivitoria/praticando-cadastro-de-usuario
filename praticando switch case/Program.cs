@@ -1,9 +1,8 @@
 ﻿
 
-List<string> listaDeNomes = new List<string>();
-listaDeNomes.Add("larieli");
-listaDeNomes.Add("sonia");
-listaDeNomes.Add("jhie");
+List<string> listaDeNomes = null!;
+
+
 
 
 /*void DigiteSeuNome()
@@ -23,27 +22,41 @@ listaDeNomes.Add("jhie");
    
 }*/
 
+
+
 void DigiteNome()
 {
     Console.WriteLine("digite seu nome");
     string nome = Console.ReadLine();
+    bool oNomeEstaNaLista = false;
+
+    if (listaDeNomes == null)
+    {
+        listaDeNomes = new List<string>();
+        listaDeNomes.Add("larieli");
+        listaDeNomes.Add("sonia");
+        listaDeNomes.Add("jhie");
+    }
 
     for (int i = 0;  i < listaDeNomes.Count; i++)
     {
-        if(listaDeNomes[i] != nome)
+        if(listaDeNomes[i] == nome)
         {
-            Console.WriteLine($"Nome {nome} não está na lista");
-            OpcoesDoMenu();
-        }
-        else
-        {
-            Console.WriteLine($"Seja bem vindo(a) {listaDeNomes[i]}");
+            oNomeEstaNaLista = true;
+            Console.WriteLine($"Seja bem vindo(a) {nome}");
             break;
         }
-        
-           
+     
+    }
+
+    if (oNomeEstaNaLista == false)
+    {
+        Console.WriteLine($"Nome {nome} não está na lista");
+        OpcoesDoMenu();
     }
 }
+
+
 
 
 void OpcoesDoMenu()
